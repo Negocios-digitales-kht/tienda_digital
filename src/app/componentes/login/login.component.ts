@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +8,22 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 
-  loginForm = this.fb.group({
+  loginForma = this.fb.group({
     email: ['',[Validators.required, Validators.email]],
-    password: ['',Validators.required],
+    password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)]]
   });
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder) {
 
   }
+
+  get email(){
+    return this.loginForma.controls['email'];
+  }
+
+  get password(){
+    return this.loginForma.controls['password'];
+
+  }
+
 }
