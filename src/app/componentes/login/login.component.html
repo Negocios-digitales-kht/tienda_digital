@@ -28,7 +28,7 @@
             name="contraseña"
             class="w-full"
             placeholder="Ingresa contraseña"
-            required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+            required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
             />
         </div>
 
@@ -40,8 +40,8 @@
                 al menos una letra mayúscula,
                 al menos una letra minúscula,
                 al menos un número,
-                al menos un caracter especial.</div>
-
+                al menos un caracter especial.
+            </div>
         </small>
 
         

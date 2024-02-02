@@ -10,7 +10,7 @@ export class LoginComponent {
 
   loginForma = this.fb.group({
     email: ['',[Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)]]
+    password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]]
   });
 
   constructor(private fb: FormBuilder) {
