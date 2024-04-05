@@ -1,16 +1,22 @@
 <form [formGroup]="registerForm">
-    <p-card header="Registro" [style]="{width: '450px'}">
+    <p-card header="Registro" [style]="{width: '400px'}">
 
         <div class="field">
             <label for="email">Nombre Completo</label>
             <input type="text"
             pInputText
-            formControlName=" name" 
-            name= " name"
+            formControlName="fullName" 
+            name= "fullName"
             class="w-full"
             placeholder="Ingresa nombre completo"
             />
         </div>
+        <small *ngIf="fullName.invalid" class="block p-error">
+            <div *ngIf="fullName.errors?.['required']">Nombre es requerido</div>
+            <div *ngIf="fullName.errors?.['email']">Nombre no válido</div>
+        </small>
+        <br>
+
         <div class="field">
             <label for="email">Correo Electronico</label>
             <input 
